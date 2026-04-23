@@ -1,11 +1,2633 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Shelby Reilly</title>
-  </head>
-  <body>
-    <h1>Shelby Reilly</h1>
-    <p>GitHub Pages is working.</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- REPLACE: Update the description and title with your name -->
+  <meta name="description" content="Shelby Reilly — Cyanotype artist based in Austin, Texas. Original prints made from native Texas flowers and plants.">
+  <title>Shelby Reilly — Cyanotype Prints | Austin, Texas</title>
+  <link rel="canonical" href="https://sunnybluestudio.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sunnybluestudio.com/">
+  <meta property="og:title" content="Shelby Reilly — Cyanotype Prints | Austin, Texas">
+  <meta property="og:description" content="Original cyanotype prints inspired by native Texas flowers and plants.">
+  <meta property="og:image" content="https://sunnybluestudio.com/images/texas-bluebonnets-field.png">
+  <meta property="og:image:alt" content="Texas Bluebonnets: Field cyanotype print">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shelby Reilly — Cyanotype Prints | Austin, Texas">
+  <meta name="twitter:description" content="Original cyanotype prints inspired by native Texas flowers and plants.">
+  <meta name="twitter:image" content="https://sunnybluestudio.com/images/texas-bluebonnets-field.png">
+  <meta name="twitter:image:alt" content="Texas Bluebonnets: Field cyanotype print">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Cormorant Garamond: editorial serif for headings / Inter: clean sans for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       To change the color palette, only edit these variables.
+    ============================================================ */
+    :root {
+      --navy-deep:     #08131e;   /* darkest — footer, hero bg */
+      --navy:          #0d1f35;   /* primary page background */
+      --navy-mid:      #132840;   /* alternate section bg */
+      --navy-surface:  #1a3355;   /* card/elevated surfaces */
+      --navy-surface-2:#203d63;   /* luminous surface for hover/focus */
+      --steel:         #4a7fa5;   /* accent / interactive */
+      --steel-light:   #8ab4d0;   /* borders, hover, labels */
+      --steel-soft:    rgba(138,180,208,0.18);
+      --cream:         #f2ede6;   /* primary text on dark */
+      --cream-dim:     #c0b5a8;   /* secondary / body text */
+      --white:         #ffffff;
+      --shadow-soft:   0 24px 80px rgba(0,0,0,0.28);
+      --shadow-deep:   0 36px 120px rgba(0,0,0,0.36);
+
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+      --ease:      0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-fast: 0.2s ease;
+      --ease-slow: 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+      --max-w:     1200px;
+      --max-w-txt: 680px;
+      --radius:    2px;
+      --nav-h:     84px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      scroll-padding-top: calc(var(--nav-h) + 1.5rem);
+    }
+    body {
+      background-color: var(--navy);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        radial-gradient(circle at 18% 12%, rgba(138,180,208,0.05), transparent 32%),
+        radial-gradient(circle at 82% 26%, rgba(74,127,165,0.08), transparent 26%),
+        linear-gradient(180deg, rgba(8,19,30,0.98) 0%, rgba(13,31,53,0.98) 24%, rgba(12,30,50,1) 100%);
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015), rgba(255,255,255,0.015)),
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 0);
+      background-size: auto, 18px 18px;
+      mix-blend-mode: soft-light;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: -1;
+    }
+    img  { max-width: 100%; display: block; }
+    a    { color: inherit; text-decoration: none; }
+    ul   { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+    ::selection {
+      background: rgba(138,180,208,0.26);
+      color: var(--white);
+    }
+    body.cursor-enhanced,
+    body.cursor-enhanced a,
+    body.cursor-enhanced button,
+    body.cursor-enhanced [role="button"],
+    body.cursor-enhanced .gallery-item {
+      cursor: none;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .t-display {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(3rem, 8vw, 7.5rem);
+      line-height: 0.93;
+      letter-spacing: -0.025em;
+    }
+    .t-headline {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .t-subhead {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--cream-dim);
+    }
+    .t-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .section {
+      position: relative;
+      padding: 9rem 0;
+      scroll-margin-top: calc(var(--nav-h) + 1.5rem);
+    }
+    .section-alt { background-color: var(--navy-mid); }
+    .section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 22%, transparent 78%, rgba(255,255,255,0.015));
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-eyebrow::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--steel);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform var(--ease-fast), box-shadow var(--ease), border-color var(--ease-fast), background-color var(--ease-fast), color var(--ease-fast);
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+      transform: translateX(-130%);
+      transition: transform 0.9s var(--ease);
+      pointer-events: none;
+    }
+    .btn-primary {
+      background-color: var(--cream);
+      color: var(--navy-deep);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+    }
+    .btn-primary:hover {
+      background-color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+    }
+    .btn-ghost {
+      border: 1px solid rgba(242,237,230,0.28);
+      color: var(--cream);
+      background-color: rgba(255,255,255,0.02);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(242,237,230,0.7);
+      background-color: rgba(242,237,230,0.06);
+      transform: translateY(-2px);
+    }
+    .btn:hover::before,
+    .btn:focus-visible::before {
+      transform: translateX(130%);
+    }
+    .btn:focus-visible,
+    .nav-link:focus-visible,
+    .nav-cta:focus-visible,
+    .gallery-item:focus-visible,
+    .contact-link:focus-visible,
+    .lightbox-close:focus-visible,
+    .lightbox-nav:focus-visible,
+    .nav-toggle:focus-visible,
+    .nav-mobile-close:focus-visible,
+    .form-input:focus-visible {
+      outline: 2px solid rgba(138,180,208,0.9);
+      outline-offset: 4px;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease, transform 0.5s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background-color: rgba(8, 19, 30, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: rgba(74,127,165,0.14);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+    .nav-logo em {
+      font-style: italic;
+      color: var(--steel-light);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .nav-link {
+      position: relative;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      transition: color var(--ease-fast), opacity var(--ease-fast);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.45rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--steel-light), transparent);
+      transform: scaleX(0.2);
+      transform-origin: center;
+      opacity: 0;
+      transition: transform var(--ease), opacity var(--ease-fast);
+    }
+    .nav-link:hover,
+    .nav-link.active { color: var(--cream); }
+    .nav-link:hover::after,
+    .nav-link.active::after,
+    .nav-link:focus-visible::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+    .nav-cta {
+      position: relative;
+      padding: 0.5rem 1.1rem;
+      border: 1px solid rgba(242,237,230,0.22);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      border-radius: var(--radius);
+      transition: transform var(--ease-fast), background-color var(--ease-fast), border-color var(--ease-fast), box-shadow var(--ease-fast);
+    }
+    .nav-cta:hover {
+      background-color: rgba(242,237,230,0.09);
+      border-color: rgba(242,237,230,0.5);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 1px;
+      background: var(--cream); transition: var(--ease-fast);
+    }
+    /* Mobile full-screen menu */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(74,127,165,0.18), transparent 35%),
+        linear-gradient(180deg, rgba(8,19,30,0.97), rgba(8,19,30,0.99));
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      backdrop-filter: blur(16px);
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile .nav-link {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      color: var(--cream);
+    }
+    .nav-mobile .nav-link:hover { color: var(--steel-light); }
+    .nav-mobile-close {
+      position: absolute;
+      top: 1.5rem; right: 2.5rem;
+      padding: 0.6rem;
+      font-size: 1.4rem;
+      color: var(--cream-dim);
+      z-index: 1;
+      transition: color var(--ease-fast);
+    }
+    .nav-mobile-close:hover { color: var(--cream); }
+    .nav-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      z-index: 130;
+      background: rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+    .nav-progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(138,180,208,0.3), rgba(138,180,208,0.95), rgba(242,237,230,0.65));
+      box-shadow: 0 0 18px rgba(138,180,208,0.5);
+      transition: width 0.12s linear;
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      background-color: var(--navy-deep);
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 7% 7% auto auto;
+      width: min(42vw, 560px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(138,180,208,0.06), transparent 68%);
+      filter: blur(8px);
+      pointer-events: none;
+      animation: drift-ambient 18s ease-in-out infinite alternate;
+    }
+    /* Subtle ambient glow */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 68% 52%, rgba(74,127,165,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 12% 75%, rgba(74,127,165,0.05) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    /* Large botanical SVG — right side */
+    .hero-botanical {
+      position: absolute;
+      right: -1%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(280px, 42vw, 580px);
+      opacity: 0.11;
+      pointer-events: none;
+    }
+    /* Small botanical — bottom left accent */
+    .hero-botanical-sm {
+      position: absolute;
+      left: 1.5%;
+      bottom: 7%;
+      width: clamp(70px, 10vw, 130px);
+      opacity: 0.07;
+      pointer-events: none;
+      transform: scaleX(-1) rotate(12deg);
+    }
+    .hero-paper,
+    .hero-mist,
+    .hero-orb {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-paper {
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 26%, transparent 74%, rgba(255,255,255,0.018)),
+        radial-gradient(circle at 30% 35%, rgba(255,255,255,0.035), transparent 22%),
+        radial-gradient(circle at 72% 68%, rgba(138,180,208,0.045), transparent 18%);
+      mix-blend-mode: screen;
+      opacity: 0.55;
+    }
+    .hero-mist {
+      inset: auto auto -12% -8%;
+      width: min(52vw, 620px);
+      height: min(42vw, 420px);
+      background: radial-gradient(circle, rgba(74,127,165,0.14), transparent 66%);
+      filter: blur(28px);
+      opacity: 0.65;
+      animation: drift-ambient 20s ease-in-out infinite alternate-reverse;
+    }
+    .hero-orb {
+      right: 16%;
+      top: 18%;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(138,180,208,0.45);
+      box-shadow: 0 0 0 12px rgba(138,180,208,0.06), 0 0 0 38px rgba(138,180,208,0.025);
+      opacity: 0.45;
+      animation: pulse-orb 5s ease-in-out infinite;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding-top: 5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-copy { max-width: 640px; }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--steel);
+      flex-shrink: 0;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(3.8rem, 10vw, 9rem);
+      line-height: 0.91;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+      margin-bottom: 2.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--steel-light);
+    }
+    .hero-sub {
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      font-weight: 300;
+      color: var(--cream-dim);
+      line-height: 1.65;
+      max-width: 460px;
+      margin-bottom: 3rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-aside {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 440px);
+      aspect-ratio: 0.88;
+      pointer-events: none;
+    }
+    .hero-frame,
+    .hero-frame-secondary {
+      position: absolute;
+      overflow: hidden;
+      border-radius: 2px;
+      border: 1px solid rgba(242,237,230,0.12);
+      box-shadow: var(--shadow-soft);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    }
+    .hero-frame {
+      inset: 5% 8% 0 18%;
+      transform: rotate(3deg);
+    }
+    .hero-frame-secondary {
+      inset: 34% 42% 12% 0;
+      transform: rotate(-6deg);
+      opacity: 0.9;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.26);
+    }
+    .hero-frame::before,
+    .hero-frame-secondary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.14), transparent 20%, transparent 80%, rgba(255,255,255,0.08)),
+        radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 32%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-frame img,
+    .hero-frame-secondary img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.94) contrast(1.02);
+      transform: scale(1.04);
+      animation: slow-drift 18s ease-in-out infinite alternate;
+    }
+    .hero-frame-secondary img {
+      animation-duration: 22s;
+      animation-direction: alternate-reverse;
+    }
+    .hero-caption {
+      position: absolute;
+      right: 8%;
+      bottom: -2%;
+      padding: 1rem 1.1rem 1rem 1.15rem;
+      min-width: 190px;
+      background: rgba(8,19,30,0.76);
+      border: 1px solid rgba(138,180,208,0.18);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 42px rgba(0,0,0,0.24);
+    }
+    .hero-caption strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 0.25rem;
+      color: var(--cream);
+    }
+    .hero-caption span:last-child {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.74rem;
+      color: var(--cream-dim);
+      line-height: 1.65;
+    }
+    /* Animated scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      z-index: 2;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--steel), transparent);
+      animation: pulse-line 2.2s ease-in-out infinite;
+    }
+    .hero-scroll span {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.15); }
+    }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    .gallery-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .gallery-intro-left { max-width: 480px; }
+    .gallery-note {
+      max-width: 290px;
+      padding: 1rem 0 0.2rem 1.25rem;
+      border-left: 1px solid rgba(138,180,208,0.24);
+      color: var(--cream-dim);
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .gallery-item {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: var(--radius);
+      aspect-ratio: 3 / 4;
+      background-color: var(--navy-mid);
+      isolation: isolate;
+      border: 1px solid rgba(138,180,208,0.1);
+      transform: translateZ(0);
+      transition: transform var(--ease), border-color var(--ease-fast), box-shadow var(--ease), background-color var(--ease-fast);
+    }
+    .gallery-item::before,
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      transition: opacity var(--ease), transform var(--ease);
+    }
+    .gallery-item::before {
+      inset: 0.8rem;
+      border: 1px solid rgba(242,237,230,0.22);
+      opacity: 0;
+      transform: scale(0.98);
+      z-index: 2;
+    }
+    .gallery-item::after {
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.12), transparent 34%);
+      opacity: 0;
+      z-index: 1;
+    }
+    .gallery-img {
+      position: absolute;
+      inset: 0;
+      transition: transform var(--ease), filter var(--ease);
+    }
+    .gallery-img img,
+    .gallery-img svg { width: 100%; height: 100%; }
+    .gallery-img img {
+      object-fit: cover;
+      transition: transform var(--ease), filter var(--ease);
+      filter: saturate(0.95) contrast(1.01);
+    }
+    .gallery-item:hover,
+    .gallery-item:focus-visible {
+      transform: translateY(-8px);
+      border-color: rgba(138,180,208,0.32);
+      box-shadow: var(--shadow-soft);
+    }
+    .gallery-item:hover::before,
+    .gallery-item:hover::after,
+    .gallery-item:focus-visible::before,
+    .gallery-item:focus-visible::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .gallery-item:hover .gallery-img,
+    .gallery-item:focus-visible .gallery-img {
+      transform: scale(1.035);
+      filter: brightness(1.03);
+    }
+    .gallery-item:hover .gallery-img img,
+    .gallery-item:focus-visible .gallery-img img {
+      transform: scale(1.06);
+      filter: saturate(0.98) contrast(1.06);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(8,19,30,0.96) 0%,
+        rgba(8,19,30,0.3) 48%,
+        transparent 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity var(--ease), transform var(--ease);
+      z-index: 3;
+      transform: translateY(10px);
+    }
+    .gallery-item:hover .gallery-overlay,
+    .gallery-item:focus-visible .gallery-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Always visible on touch screens */
+    @media (hover: none) {
+      .gallery-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(8,19,30,0.88) 0%, transparent 55%);
+      }
+    }
+    .gallery-overlay-meta {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+      margin-bottom: 0.3rem;
+    }
+    .gallery-overlay-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .gallery-overlay-desc {
+      max-width: 26ch;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: rgba(242,237,230,0.75);
+      margin-bottom: 0.95rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--ease), transform var(--ease);
+    }
+    .gallery-view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      transition: gap var(--ease-fast), color var(--ease-fast);
+    }
+    .gallery-item:hover .gallery-overlay-desc,
+    .gallery-item:focus-visible .gallery-overlay-desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery-item:hover .gallery-view-link,
+    .gallery-item:focus-visible .gallery-view-link {
+      gap: 0.65rem;
+      color: var(--cream);
+    }
+
+    /* ============================================================
+       CYANOTYPE COLOR PALETTES (replace with real images later)
+       Each .art-N class gives a unique prussian-blue gradient.
+    ============================================================ */
+    .art-1 { background: radial-gradient(ellipse at 38% 48%, #2b5c88 0%, #0b2340 100%); }
+    .art-2 { background: radial-gradient(ellipse at 62% 36%, #1f4e74 0%, #091828 100%); }
+    .art-3 { background: radial-gradient(ellipse at 44% 55%, #255480 0%, #0c2038 100%); }
+    .art-4 { background: radial-gradient(ellipse at 55% 32%, #1b4870 0%, #0a1a2c 100%); }
+    .art-5 { background: radial-gradient(ellipse at 32% 58%, #224e7a 0%, #0c2040 100%); }
+    .art-6 { background: radial-gradient(ellipse at 60% 44%, #1e4c72 0%, #091c2e 100%); }
+
+    /* ============================================================
+       LIGHTBOX
+    ============================================================ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background:
+        radial-gradient(circle at top, rgba(74,127,165,0.16), transparent 28%),
+        rgba(8,19,30,0.97);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox-shell {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.75fr);
+      gap: 4rem;
+      align-items: center;
+      max-width: 1040px;
+      width: 88%;
+      max-height: 92vh;
+    }
+    .lightbox-img-wrap {
+      aspect-ratio: 3 / 4;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(138,180,208,0.18);
+      box-shadow: var(--shadow-deep);
+    }
+    .lightbox-img-wrap > div { width: 100%; height: 100%; }
+    .lightbox-img-wrap svg  { width: 100%; height: 100%; }
+    .lightbox-body { padding: 1rem 0; }
+    .lightbox-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 1.4rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(138,180,208,0.16);
+    }
+    .lightbox-meta-label {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+      margin-bottom: 0.35rem;
+    }
+    .lightbox-meta-value {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--cream);
+    }
+    .lightbox-count {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+      margin-bottom: 1.5rem;
+    }
+    .lightbox-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .lightbox-medium {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+      margin-bottom: 1.5rem;
+    }
+    .lightbox-rule {
+      width: 36px; height: 1px;
+      background: var(--steel);
+      margin-bottom: 1.5rem;
+    }
+    .lightbox-desc {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--cream-dim);
+      font-weight: 300;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -3rem; right: 0;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--cream-dim);
+      padding: 0.5rem;
+      transition: color var(--ease-fast);
+    }
+    .lightbox-close:hover { color: var(--cream); }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(242,237,230,0.2);
+      border-radius: 50%;
+      color: var(--cream);
+      transition: var(--ease-fast);
+    }
+    .lightbox-nav:hover {
+      background-color: rgba(242,237,230,0.1);
+      border-color: rgba(242,237,230,0.5);
+    }
+    .lb-prev { left:  -3.5rem; }
+    .lb-next { right: -3.5rem; }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -14px -14px 14px 14px;
+      border: 1px solid rgba(74,127,165,0.18);
+      border-radius: var(--radius);
+      z-index: 0;
+    }
+    .about-img {
+      position: relative;
+      z-index: 1;
+      aspect-ratio: 4 / 5;
+      background: radial-gradient(ellipse at 45% 48%, #1e4e7a 0%, #0c2240 100%);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+    .about-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), transparent 24%, transparent 76%, rgba(255,255,255,0.08));
+      pointer-events: none;
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform var(--ease-slow), filter var(--ease);
+    }
+    .about-img-wrap:hover .about-img img {
+      transform: scale(1.03);
+      filter: saturate(1.02);
+    }
+    .about-img svg { width: 100%; height: 100%; }
+    .about-text > p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--cream-dim);
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+    .about-text > p:first-of-type {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.65;
+      color: var(--cream);
+      font-weight: 300;
+    }
+    .about-stats {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(74,127,165,0.18);
+      display: flex;
+      gap: 3rem;
+    }
+    .about-stat { display: flex; flex-direction: column; gap: 0.25rem; }
+    .about-stat-n {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .about-stat-l {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+    }
+
+    /* ============================================================
+       PROCESS
+    ============================================================ */
+    .process-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 5rem;
+    }
+    .process-shell {
+      position: relative;
+    }
+    .process-progress {
+      position: absolute;
+      left: -1.25rem;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(74,127,165,0.05), rgba(74,127,165,0.34), rgba(74,127,165,0.05));
+      opacity: 0.6;
+    }
+    .process-progress::after {
+      content: '';
+      position: absolute;
+      top: var(--process-progress, 0%);
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--steel-light);
+      box-shadow: 0 0 0 12px rgba(138,180,208,0.08);
+      transform: translate(-50%, -50%);
+      transition: top 0.25s ease;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background-color: rgba(74,127,165,0.1);
+      border: 1px solid rgba(74,127,165,0.1);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 5rem;
+    }
+    .process-step {
+      position: relative;
+      padding: 2.5rem 2rem;
+      background-color: var(--navy);
+      transition: background-color var(--ease-fast), transform var(--ease), box-shadow var(--ease-fast);
+    }
+    .process-step::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(138,180,208,0.12), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.025), transparent 40%);
+      opacity: 0;
+      transition: opacity var(--ease);
+      pointer-events: none;
+    }
+    .process-step:hover,
+    .process-step.active {
+      background-color: rgba(27,51,88,0.68);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+    }
+    .process-step:hover::before,
+    .process-step.active::before { opacity: 1; }
+    .process-step-n {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(74,127,165,0.22);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .process-step-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+    .process-step-body {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--cream-dim);
+      font-weight: 300;
+    }
+    .process-step-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 1rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+    }
+    .process-step-note::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+    .process-pullquote {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .process-pullquote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+    .process-pullquote cite {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+      font-style: normal;
+    }
+    /* Decorative horizontal rule above pullquote */
+    .process-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .process-divider::before,
+    .process-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(74,127,165,0.3), transparent);
+    }
+    .process-divider-icon {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--steel);
+      opacity: 0.6;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-info {
+      position: relative;
+    }
+    .contact-info-headline {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+    .contact-info p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--cream-dim);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 0.9rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.87rem;
+      color: var(--cream-dim);
+      transition: color var(--ease-fast), transform var(--ease-fast);
+    }
+    .contact-link:hover {
+      color: var(--cream);
+      transform: translateX(4px);
+    }
+    .contact-link svg {
+      width: 15px; height: 15px;
+      color: var(--steel);
+      flex-shrink: 0;
+    }
+    /* Form */
+    .contact-form-wrap {
+      position: relative;
+      padding: 1.5rem;
+      border: 1px solid rgba(138,180,208,0.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        rgba(8,19,30,0.18);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .contact-form-wrap::before {
+      content: '';
+      position: absolute;
+      inset: auto -10% -30% auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,127,165,0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .contact-form { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row  { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+    }
+    .form-input {
+      background: rgba(26,51,85,0.35);
+      border: 1px solid rgba(74,127,165,0.2);
+      border-radius: var(--radius);
+      padding: 0.82rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--cream);
+      outline: none;
+      width: 100%;
+      transition: border-color var(--ease-fast), background-color var(--ease-fast), box-shadow var(--ease-fast), transform var(--ease-fast);
+    }
+    .form-input::placeholder { color: rgba(242,237,230,0.22); }
+    .form-input:focus {
+      border-color: rgba(74,127,165,0.5);
+      background: rgba(26,51,85,0.55);
+      box-shadow: 0 0 0 4px rgba(138,180,208,0.08);
+      transform: translateY(-1px);
+    }
+    textarea.form-input { resize: vertical; min-height: 136px; }
+    .form-success {
+      display: none;
+      padding: 1.5rem 2rem;
+      background: rgba(74,127,165,0.1);
+      border: 1px solid rgba(74,127,165,0.28);
+      border-radius: var(--radius);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--cream);
+      text-align: center;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background-color: var(--navy-deep);
+      padding: 3.5rem 0;
+      border-top: 1px solid rgba(74,127,165,0.1);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.3rem; }
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--cream);
+    }
+    .footer-tagline {
+      font-family: var(--serif);
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--steel-light);
+    }
+    .footer-nav {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.67rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .footer-nav a:hover { color: var(--cream); }
+    .footer-copy {
+      font-size: 0.67rem;
+      color: rgba(192,181,168,0.35);
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);
+      filter: blur(3px);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 1s var(--ease), transform 1s var(--ease);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity 1s var(--ease), transform 1s var(--ease);
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+    .d6 { transition-delay: 0.6s; }
+
+    .cursor-dot,
+    .cursor-ring,
+    .cursor-label {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 400;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.25s ease, width var(--ease-fast), height var(--ease-fast), background-color var(--ease-fast), border-color var(--ease-fast), box-shadow var(--ease-fast), letter-spacing var(--ease-fast);
+    }
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(242,237,230,0.92);
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(138,180,208,0.45);
+      box-shadow: 0 0 0 14px rgba(138,180,208,0.06);
+      backdrop-filter: blur(2px);
+    }
+    .cursor-label {
+      padding: 0.38rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(8,19,30,0.82);
+      border: 1px solid rgba(138,180,208,0.24);
+      color: var(--cream);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transform: translate(calc(-50% + 20px), calc(-50% - 24px));
+    }
+    .cursor-label:empty { opacity: 0 !important; }
+    body.cursor-enhanced.cursor-visible .cursor-dot,
+    body.cursor-enhanced.cursor-visible .cursor-ring,
+    body.cursor-enhanced.cursor-visible .cursor-label {
+      opacity: 1;
+    }
+    body.cursor-enhanced.cursor-link .cursor-ring {
+      width: 58px;
+      height: 58px;
+      border-color: rgba(242,237,230,0.35);
+      box-shadow: 0 0 0 18px rgba(242,237,230,0.05);
+    }
+    body.cursor-enhanced.cursor-art .cursor-ring {
+      width: 84px;
+      height: 84px;
+      border-color: rgba(138,180,208,0.52);
+      background: radial-gradient(circle, rgba(138,180,208,0.1), transparent 65%);
+      box-shadow: 0 0 0 22px rgba(138,180,208,0.08);
+    }
+    body.cursor-enhanced.cursor-hidden .cursor-dot,
+    body.cursor-enhanced.cursor-hidden .cursor-ring,
+    body.cursor-enhanced.cursor-hidden .cursor-label {
+      opacity: 0;
+    }
+
+    @keyframes pulse-orb {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.08); opacity: 0.68; }
+    }
+    @keyframes drift-ambient {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(18px, -22px, 0) scale(1.06); }
+    }
+    @keyframes slow-drift {
+      0% { transform: scale(1.04) translate3d(0, 0, 0); }
+      100% { transform: scale(1.08) translate3d(-8px, 10px, 0); }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .container { padding: 0 2rem; }
+      .hero-content { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-aside {
+        justify-self: start;
+        width: min(100%, 420px);
+      }
+      .process-progress { display: none; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .lightbox-shell {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        overflow-y: auto;
+      }
+      .lightbox-img-wrap { aspect-ratio: 4 / 3; }
+      .lb-prev, .lb-next { display: none; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 5.5rem 0; }
+      .nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .container { padding: 0 1.5rem; }
+      .hero-content { padding-top: 6rem; }
+      .hero-aside {
+        width: 100%;
+        max-width: 380px;
+      }
+      .hero-caption { right: 0; bottom: 0; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .gallery-intro { flex-direction: column; align-items: flex-start; }
+      .gallery-note { max-width: none; padding-left: 0; border-left: 0; border-top: 1px solid rgba(138,180,208,0.18); padding-top: 1.15rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-wrap::before { display: none; }
+      .process-header { grid-template-columns: 1fr; gap: 2rem; }
+      .process-steps { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-nav { flex-wrap: wrap; gap: 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .about-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .hero-aside { aspect-ratio: 0.95; }
+      .contact-form-wrap { padding: 1rem; }
+      .lightbox-meta-grid { grid-template-columns: 1fr; }
+    }
+    @media (hover: none), (pointer: coarse) {
+      body.cursor-enhanced,
+      body.cursor-enhanced a,
+      body.cursor-enhanced button,
+      body.cursor-enhanced [role="button"],
+      body.cursor-enhanced .gallery-item {
+        cursor: auto;
+      }
+      .cursor-dot,
+      .cursor-ring,
+      .cursor-label { display: none; }
+      .gallery-item:hover,
+      .gallery-item:focus-visible {
+        transform: none;
+      }
+      .gallery-item::before,
+      .gallery-item::after {
+        opacity: 0.55;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal,
+      .reveal-left,
+      .reveal-scale {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav-progress" aria-hidden="true">
+    <div class="nav-progress-bar" id="navProgressBar"></div>
+  </div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="cursor-label" id="cursorLabel" aria-hidden="true"></div>
+
+  <!-- ===========================================================
+       NAVIGATION
+       REPLACE: "Shelby Reilly" with your name everywhere it appears.
+  =========================================================== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <!-- REPLACE: your name -->
+    <a href="#hero" class="nav-logo">Shelby Reilly <em>/ Austin</em></a>
+    <ul class="nav-links" role="list">
+      <li><a href="#work"    class="nav-link">Work</a></li>
+      <li><a href="#about"   class="nav-link">About</a></li>
+      <li><a href="#process" class="nav-link">Process</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile full-screen menu -->
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobile navigation">
+    <button class="nav-mobile-close" id="navClose" aria-label="Close menu">✕</button>
+    <a href="#work"    class="nav-link">Work</a>
+    <a href="#about"   class="nav-link">About</a>
+    <a href="#process" class="nav-link">Process</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ===========================================================
+         HERO
+         REPLACE: headline, subheading, and eyebrow text.
+    =========================================================== -->
+    <section class="hero" id="hero" aria-label="Introduction">
+
+      <!-- Botanical decorations (pure CSS/SVG, no image needed) -->
+      <svg class="hero-botanical" viewBox="0 0 420 620" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M210,615 C207,555 201,492 208,428 C215,364 226,302 216,222
+                 C209,158 195,85 205,16"
+              stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- Leaves: alternating left / right -->
+        <ellipse cx="192" cy="490" rx="52" ry="18" fill="white" transform="rotate(-42 192 490)"/>
+        <ellipse cx="232" cy="458" rx="56" ry="18" fill="white" transform="rotate(42 232 458)"/>
+        <ellipse cx="188" cy="390" rx="48" ry="16" fill="white" transform="rotate(-38 188 390)"/>
+        <ellipse cx="234" cy="360" rx="50" ry="16" fill="white" transform="rotate(38 234 360)"/>
+        <ellipse cx="190" cy="295" rx="42" ry="14" fill="white" transform="rotate(-35 190 295)"/>
+        <ellipse cx="232" cy="268" rx="44" ry="14" fill="white" transform="rotate(35 232 268)"/>
+        <ellipse cx="192" cy="205" rx="36" ry="13" fill="white" transform="rotate(-30 192 205)"/>
+        <ellipse cx="228" cy="182" rx="34" ry="12" fill="white" transform="rotate(30 228 182)"/>
+        <ellipse cx="196" cy="125" rx="28" ry="10" fill="white" transform="rotate(-26 196 125)"/>
+        <ellipse cx="224" cy="104" rx="26" ry="9" fill="white" transform="rotate(26 224 104)"/>
+        <!-- Tip cluster -->
+        <circle cx="206" cy="48" r="7"  fill="white" opacity=".85"/>
+        <circle cx="196" cy="33" r="5"  fill="white" opacity=".75"/>
+        <circle cx="218" cy="30" r="4.5" fill="white" opacity=".70"/>
+        <circle cx="202" cy="18" r="3.5" fill="white" opacity=".65"/>
+        <!-- Small branch left -->
+        <path d="M192,300 C176,283 158,268 142,260" stroke="white" stroke-width="1.2"
+              fill="none" stroke-linecap="round"/>
+        <ellipse cx="155" cy="272" rx="26" ry="9" fill="white" opacity=".7"
+                 transform="rotate(-58 155 272)"/>
+        <!-- Small branch right -->
+        <path d="M230,268 C248,252 264,238 278,230" stroke="white" stroke-width="1.2"
+              fill="none" stroke-linecap="round"/>
+        <ellipse cx="261" cy="241" rx="24" ry="8" fill="white" opacity=".7"
+                 transform="rotate(52 261 241)"/>
+      </svg>
+
+      <svg class="hero-botanical-sm" viewBox="0 0 200 290" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M100,285 C98,248 94,210 100,172 C106,134 113,96 106,46 C102,20 96,6 100,0"
+              stroke="white" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <ellipse cx="86"  cy="230" rx="38" ry="13" fill="white" transform="rotate(-40 86 230)"/>
+        <ellipse cx="115" cy="205" rx="40" ry="13" fill="white" transform="rotate(40 115 205)"/>
+        <ellipse cx="85"  cy="162" rx="32" ry="11" fill="white" transform="rotate(-36 85 162)"/>
+        <ellipse cx="116" cy="140" rx="30" ry="10" fill="white" transform="rotate(36 116 140)"/>
+        <circle cx="100" cy="22"  r="6"   fill="white"/>
+        <circle cx="92"  cy="10"  r="4"   fill="white" opacity=".8"/>
+        <circle cx="110" cy="14"  r="3.5" fill="white" opacity=".75"/>
+      </svg>
+
+      <div class="hero-paper" aria-hidden="true"></div>
+      <div class="hero-mist" aria-hidden="true"></div>
+      <div class="hero-orb" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-copy reveal-left visible">
+            <div class="hero-eyebrow">
+              <div class="hero-dot"></div>
+              <!-- REPLACE: location / short descriptor -->
+              <span class="t-label">Austin, Texas — Cyanotype Artist</span>
+            </div>
+
+            <!-- REPLACE: Your hero headline. Keep it poetic. -->
+            <h1 class="hero-title">
+              Made by<br>
+              sun &amp; <em>wildflowers</em>
+            </h1>
+
+            <!-- REPLACE: One or two-line subheading. -->
+            <p class="hero-sub">
+              Original cyanotype prints made from the native flowers
+              and plants of Central Texas. Light, botany, and time —
+              pressed permanently into paper.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="#work" class="btn btn-primary">View Work</a>
+              <a href="#contact" class="btn btn-ghost">About &amp; Contact</a>
+            </div>
+          </div>
+
+          <div class="hero-aside reveal-scale" aria-hidden="true">
+            <div class="hero-frame">
+              <img src="images/Texas Bluebonnets_ Field.png" alt="">
+            </div>
+            <div class="hero-frame-secondary">
+              <img src="images/Lantana.png" alt="">
+            </div>
+            <div class="hero-caption">
+              <span class="t-label">Featured Print</span>
+              <strong>Texas Bluebonnets: Field</strong>
+              <span>A small field study in layered bloom, held in deep Prussian blue.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         WORK / GALLERY
+         Edit the `artworks` array in the <script> block at the
+         bottom to change titles, descriptions, and mediums.
+         To use real images, see the comment in renderGallery().
+    =========================================================== -->
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="gallery-intro">
+          <div class="gallery-intro-left">
+            <div class="section-eyebrow reveal">
+              <span class="t-label">Selected Work</span>
+            </div>
+            <h2 class="t-headline reveal d1" id="work-heading">Original Prints</h2>
+            <p class="t-subhead reveal d2" style="margin-top:.5rem;">
+              Each piece is a direct impression — plant pressed to paper,
+              sun doing the rest.
+            </p>
+          </div>
+          <p class="gallery-note reveal d3">
+            A curated selection of original prints and close studies. Hover for details, then open each piece for a fuller view and material notes.
+          </p>
+          <!-- Optional: add a link to a full shop/Etsy here -->
+          <!-- <a href="#" class="btn btn-ghost reveal" style="align-self:flex-end">All Work →</a> -->
+        </div>
+
+        <!-- Gallery items are injected by JavaScript -->
+        <div class="gallery-grid" id="galleryGrid" role="list"></div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         ABOUT
+         REPLACE: bio paragraphs, numbers, and portrait image.
+    =========================================================== -->
+    <section class="section section-alt" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Portrait placeholder — replace with your own photo -->
+          <div class="about-img-wrap reveal">
+            <div class="about-img">
+              <img src="images/portrait.png"
+                   alt="Artist standing in a field of Texas bluebonnets"
+                   style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+            </div>
+          </div>
+
+          <!-- Bio text -->
+          <div class="about-text">
+            <div class="section-eyebrow reveal">
+              <span class="t-label">About</span>
+            </div>
+            <!-- REPLACE: your name or a short self-description for this heading -->
+            <h2 class="t-headline reveal d1" id="about-heading" style="margin-bottom:2rem;">
+              Rooted in the<br>Texas Landscape
+            </h2>
+
+            <!-- REPLACE: Your bio. Keep it personal and honest. -->
+            <p class="reveal d1">
+              I am an artist living and working in Austin, Texas, where the cedar
+              hills meet the wildflower meadows along the Colorado River corridor.
+              My practice centers on cyanotype printmaking — one of the oldest
+              photographic processes, and one of the most elemental.
+            </p>
+            <p class="reveal d2">
+              Many of my specimens come from plants I grow myself — others are
+              foraged from broken or fallen stems I find in the hill country of Austin. Bluebonnets in early spring. Prairie verbena in summer.
+              The silver seedheads of Indiangrass come fall. Each plant carries
+              the story of a specific place and season, pressed permanently into paper.
+            </p>
+            <p class="reveal d3">
+              My work is an act of attention — to native ecology, to the particular
+              quality of Texas light, and to the slow, irreversible beauty of a
+              contact print. I believe there is something worth preserving in the
+              ordinary wildness of this land.
+            </p>
+
+            <!-- REPLACE: update numbers to reflect your practice -->
+            <div class="about-stats reveal d4">
+              <div class="about-stat">
+                <span class="about-stat-n">40+</span>
+                <span class="about-stat-l">Native species</span>
+              </div>
+              <div class="about-stat">
+                <span class="about-stat-n">Austin</span>
+                <span class="about-stat-l">Central Texas</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         PROCESS
+         REPLACE: step descriptions and the closing pullquote.
+    =========================================================== -->
+    <section class="section" id="process" aria-labelledby="process-heading">
+      <div class="container">
+
+        <div class="process-header">
+          <div>
+            <div class="section-eyebrow reveal">
+              <span class="t-label">The Process</span>
+            </div>
+            <h2 class="t-headline reveal d1" id="process-heading">
+              Sunlight &amp;<br>Native Flora
+            </h2>
+          </div>
+          <!-- REPLACE: process intro paragraph -->
+          <p class="t-subhead reveal d2" style="padding-bottom:.5rem;">
+            Cyanotype is one of the oldest photographic processes — it asks
+            nothing more than iron chemistry, a plant, and an honest afternoon
+            of Texas sun. The result is blue and irreversible.
+          </p>
+        </div>
+
+        <!-- REPLACE: Step titles and body text here -->
+        <div class="process-shell">
+          <div class="process-progress" aria-hidden="true"></div>
+          <div class="process-steps">
+            <div class="process-step reveal" data-step="0">
+            <div class="process-step-n">01</div>
+            <h3 class="process-step-title">Gathering</h3>
+            <p class="process-step-body">
+              Many specimens come from plants I grow myself. Others are
+              foraged from broken or fallen stems found in the hill country
+              of Austin — bluebonnets in late spring, verbena in summer,
+              dried seedheads in fall. The plant chooses the print.
+            </p>
+            <span class="process-step-note">Field notes &amp; season</span>
+            </div>
+            <div class="process-step reveal d1" data-step="1">
+            <div class="process-step-n">02</div>
+            <h3 class="process-step-title">Sensitizing</h3>
+            <p class="process-step-body">
+              In low light I brush paper with a ferric ammonium citrate
+              and potassium ferricyanide solution. The chemistry disappears
+              into the fibers and waits quietly for the sun.
+            </p>
+            <span class="process-step-note">Paper, chemistry, patience</span>
+            </div>
+            <div class="process-step reveal d2" data-step="2">
+            <div class="process-step-n">03</div>
+            <h3 class="process-step-title">Composing</h3>
+            <p class="process-step-body">
+              Each plant is placed by hand onto the sensitized surface.
+              There is no lens, no darkroom, no distance between subject
+              and image. The print is a direct record of contact.
+            </p>
+            <span class="process-step-note">Placement &amp; silhouette</span>
+            </div>
+            <div class="process-step reveal d3" data-step="3">
+            <div class="process-step-n">04</div>
+            <h3 class="process-step-title">Developing</h3>
+            <p class="process-step-body">
+              Exposed paper is submerged in water. Deep Prussian blue blooms
+              through the surface. Where the plant lay — white silence.
+              The image has arrived.
+            </p>
+            <span class="process-step-note">Water, bloom, permanence</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-divider reveal">
+          <div class="process-divider-icon"></div>
+        </div>
+
+        <!-- REPLACE: your closing thought on the process -->
+        <div class="process-pullquote reveal">
+          <blockquote>
+            "Every print is a record of one afternoon of Texas light —
+            unrepeatable, botanical, and blue."
+          </blockquote>
+          <cite>— On the cyanotype process</cite>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         CONTACT
+         REPLACE: email, Instagram handle, and location below.
+         The form shows a success message on submit — connect it
+         to a real backend (Formspree, Netlify Forms, EmailJS, etc.)
+         by following the comment inside the <script> block.
+    =========================================================== -->
+    <section class="section section-alt" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <div class="section-eyebrow reveal">
+              <span class="t-label">Contact</span>
+            </div>
+            <h2 class="t-headline reveal d1" id="contact-heading" style="margin-bottom:1.5rem;">
+              Let's<br>Connect
+            </h2>
+            <!-- REPLACE: your invitation copy -->
+            <p class="reveal d2">
+              I welcome inquiries about original prints, limited editions,
+              commissions, studio visits, and collaborations with
+              conservation groups, botanical gardens, and galleries.
+              I read every message.
+            </p>
+            <div class="contact-links reveal d3">
+              <!-- REPLACE: sereilly73@gmail.com -->
+              <a href="mailto:sereilly73@gmail.com" class="contact-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m2 7 10 7 10-7"/>
+                </svg>
+                <!-- REPLACE: sereilly73@gmail.com -->
+                sereilly73@gmail.com
+              </a>
+              <!-- REPLACE: neighbourhood / city -->
+              <span class="contact-link" style="cursor:default;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                  <circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Austin, Texas
+              </span>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="reveal d2">
+            <div class="contact-form-wrap">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="fname" class="form-label">Name</label>
+                  <input type="text" id="fname" name="name" class="form-input"
+                         placeholder="Your name" required autocomplete="name">
+                </div>
+                <div class="form-field">
+                  <label for="femail" class="form-label">Email</label>
+                  <input type="email" id="femail" name="email" class="form-input"
+                         placeholder="sereilly73@gmail.com" required autocomplete="email">
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="fsubject" class="form-label">Subject</label>
+                <input type="text" id="fsubject" name="subject" class="form-input"
+                       placeholder="Print inquiry, commission, studio visit…">
+              </div>
+              <div class="form-field">
+                <label for="fmessage" class="form-label">Message</label>
+                <textarea id="fmessage" name="message" class="form-input"
+                          placeholder="Tell me about your interest…" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self:flex-start;">
+                Send Message
+              </button>
+              <div class="form-success" id="formSuccess" role="alert">
+                Thank you. I'll be in touch soon.
+              </div>
+            </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===========================================================
+       FOOTER
+       REPLACE: Shelby Reilly and tagline.
+  =========================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <!-- REPLACE: Your name -->
+          <span class="footer-name">Shelby Reilly</span>
+          <!-- REPLACE: Short tagline -->
+          <span class="footer-tagline">Sunny Blue Studio - Austin, Texas</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <!-- REPLACE: year and your name -->
+        <span class="footer-copy">&copy; 2026 Shelby Reilly</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===========================================================
+       LIGHTBOX (injected by JS)
+  =========================================================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+       aria-labelledby="lbTitle">
+    <div class="lightbox-shell">
+      <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+      <button class="lightbox-nav lb-prev" id="lbPrev" aria-label="Previous artwork">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button class="lightbox-nav lb-next" id="lbNext" aria-label="Next artwork">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+      <div class="lightbox-img-wrap" id="lbImg"></div>
+      <div class="lightbox-body">
+        <p class="lightbox-count"  id="lbCount"></p>
+        <h3 class="lightbox-title" id="lbTitle"></h3>
+        <p class="lightbox-medium" id="lbMedium"></p>
+        <div class="lightbox-rule"></div>
+        <p class="lightbox-desc"   id="lbDesc"></p>
+        <div class="lightbox-meta-grid">
+          <div>
+            <span class="lightbox-meta-label">Medium</span>
+            <span class="lightbox-meta-value" id="lbMetaMedium"></span>
+          </div>
+          <div>
+            <span class="lightbox-meta-label">Place</span>
+            <span class="lightbox-meta-value" id="lbMetaPlace"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================================================
+       JAVASCRIPT
+  =========================================================== -->
+  <script>
+    /* ==========================================================
+       ARTWORK DATA
+       ──────────────────────────────────────────────────────────
+       Edit this array to update gallery content.
+       Each object supports:
+         title       — artwork title
+         medium      — materials / process
+         year        — optional year string
+         description — paragraph shown in lightbox
+         svgClass    — CSS class for the background color (art-1…art-6)
+         plant       — which botanical illustration to render
+                       options: bluebonnet | verbena | susan |
+                                sage | poppy | thistle
+       ──────────────────────────────────────────────────────────
+       ADDING REAL IMAGES:
+       When you have actual scanned or photographed prints, find
+       the renderGallery() function below and swap the <svg>
+       placeholder for an <img> tag as noted in the comment.
+    ========================================================== */
+    const artworks = [
+      {
+        title:       "Lantana",
+        medium:      "Cyanotype on linen",
+        year:        "",
+        location:    "Austin, Texas",
+        description: "Built around the dense flower clusters and serrated leaves of lantana, this piece balances softness in the blossoms with a more graphic silhouette below.",
+        image:       "images/Lantana.png",
+        svgClass:    "art-1",
+        plant:       "sage"
+      },
+      {
+        title:       "Prarie Verbena",
+        medium:      "Cyanotype on watercolor paper",
+        year:        "",
+        location:    "Central Texas",
+        description: "Printed from a fresh stem of prairie verbena, preserving the clustered blossoms and airy branching structure in a lighter, more open composition.",
+        image:       "images/Prarie Verbena.png",
+        svgClass:    "art-2",
+        plant:       "verbena"
+      },
+      {
+        title:       "Blackfoot Daisy",
+        medium:      "Cyanotype on cotton rag paper",
+        year:        "",
+        location:    "Austin, Texas",
+        description: "This print holds the bright, radiating form of blackfoot daisy, with the petals and central disk registering as a crisp negative against the blue ground.",
+        image:       "images/Blackfoot Daisy.png",
+        svgClass:    "art-3",
+        plant:       "susan"
+      },
+      {
+        title:       "Texas Vervain",
+        medium:      "Large format cyanotype",
+        year:        "",
+        location:    "Hill Country",
+        description: "The tall vertical rhythm of Texas vervain gives this print its structure, with small blossoms stepping upward through the composition like notes on a staff.",
+        image:       "images/Texas Vervain.png",
+        lightboxImageStyle: "object-fit:cover;transform:scale(1.05);object-position:center;",
+        svgClass:    "art-4",
+        plant:       "thistle"
+      },
+      {
+        title:       "Texas Bluebonnets: Just Two",
+        medium:      "Cyanotype on cotton rag paper",
+        year:        "",
+        location:    "Austin, Texas",
+        description: "A close study of two bluebonnet stems, printed for their quiet symmetry and the delicate spacing of each bloom along the stalk.",
+        image:       "images/Texas Bluebonnets_ Just two.png",
+        svgClass:    "art-5",
+        plant:       "bluebonnet"
+      },
+      {
+        title:       "Texas Bluebonnets: Field",
+        medium:      "Cyanotype on cotton rag paper",
+        year:        "",
+        location:    "Central Texas",
+        description: "A fuller stand of bluebonnets arranged to feel like a small field study, with overlapping stems and blossoms creating a denser impression of spring growth.",
+        image:       "images/Texas Bluebonnets_ Field.png",
+        svgClass:    "art-6",
+        plant:       "poppy"
+      }
+    ];
+
+    /* ==========================================================
+       BOTANICAL SVG ILLUSTRATIONS
+       Cyanotype-inspired: light plant silhouettes on dark blue.
+       These are pure CSS+SVG placeholders — replace with real
+       scanned prints when ready (see renderGallery notes).
+    ========================================================== */
+
+    /* Helper: radial petals (daisy / black-eyed susan) */
+    function makePetals(cx, cy, inner, outer, count, opacity) {
+      let s = '';
+      for (let i = 0; i < count; i++) {
+        const a  = (i / count) * Math.PI * 2 - Math.PI / 2;
+        const mx = cx + Math.cos(a) * (inner + outer) / 2;
+        const my = cy + Math.sin(a) * (inner + outer) / 2;
+        const rx = outer * 0.38;
+        const ry = (outer - inner) * 0.52;
+        const deg = (a * 180 / Math.PI) + 90;
+        s += `<ellipse cx="${mx.toFixed(1)}" cy="${my.toFixed(1)}"
+               rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}"
+               fill="rgba(210,235,255,${opacity})"
+               transform="rotate(${deg.toFixed(1)} ${mx.toFixed(1)} ${my.toFixed(1)})"/>`;
+      }
+      return s;
+    }
+
+    /* Helper: alternating leaf pairs along a stem */
+    function makeLeaves(sx, sy, count, spread, size, step, mirror) {
+      let s = '';
+      for (let i = 0; i < count; i++) {
+        const y   = sy - i * step;
+        const dir = (i % 2 === 0 ? -1 : 1) * (mirror ? -1 : 1);
+        const x   = sx + dir * spread;
+        const ang = dir * 36;
+        s += `<ellipse cx="${x}" cy="${y}" rx="${size}" ry="${(size*0.36).toFixed(1)}"
+               fill="rgba(215,235,255,0.55)"
+               transform="rotate(${ang} ${x} ${y})"/>`;
+      }
+      return s;
+    }
+
+    /* Per-plant SVG markup */
+    function plantSVG(type, uid) {
+      const g = `g${uid}`;
+      const plants = {
+
+        bluebonnet: `
+          <defs>
+            <radialGradient id="${g}" cx="38%" cy="52%" r="54%">
+              <stop offset="0%"   stop-color="#2e6294" stop-opacity=".5"/>
+              <stop offset="100%" stop-color="#0b2545" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="300" height="400" fill="#0d2648"/>
+          <rect width="300" height="400" fill="url(#${g})"/>
+          <path d="M150,395 C148,355 145,312 151,268 C157,224 163,182 155,134
+                   C150,96 143,52 150,12"
+                stroke="rgba(215,238,255,0.72)" stroke-width="2.5"
+                fill="none" stroke-linecap="round"/>
+          ${makeLeaves(150,340,10,30,22,30,false)}
+          <circle cx="149" cy="46"  r="7"  fill="rgba(215,238,255,.85)"/>
+          <circle cx="141" cy="30"  r="5"  fill="rgba(215,238,255,.72)"/>
+          <circle cx="159" cy="26"  r="4.5" fill="rgba(215,238,255,.68)"/>
+          <circle cx="150" cy="16"  r="3.5" fill="rgba(215,238,255,.60)"/>
+        `,
+
+        verbena: `
+          <defs>
+            <radialGradient id="${g}" cx="58%" cy="38%" r="52%">
+              <stop offset="0%"   stop-color="#1e5278" stop-opacity=".55"/>
+              <stop offset="100%" stop-color="#09192c" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="300" height="400" fill="#09192c"/>
+          <rect width="300" height="400" fill="url(#${g})"/>
+          <path d="M150,395 C148,360 144,322 151,282 C158,242 165,202 156,154
+                   C150,114 142,68 150,20"
+                stroke="rgba(205,230,252,0.68)" stroke-width="2"
+                fill="none" stroke-linecap="round"/>
+          ${makeLeaves(150,360,8,28,20,30,false)}
+          <!-- Branch clusters with small flower heads -->
+          <path d="M152,285 C136,270 118,260 100,256" stroke="rgba(205,230,252,.5)"
+                stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="98" cy="254" r="15" fill="rgba(205,230,252,.55)"/>
+          <circle cx="88" cy="244" r="8"  fill="rgba(205,230,252,.45)"/>
+          <path d="M152,285 C168,270 186,258 204,254" stroke="rgba(205,230,252,.5)"
+                stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="206" cy="252" r="14" fill="rgba(205,230,252,.55)"/>
+          <circle cx="216" cy="244" r="7"  fill="rgba(205,230,252,.45)"/>
+          <path d="M153,165 C140,155 126,146 110,144" stroke="rgba(205,230,252,.45)"
+                stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <circle cx="108" cy="142" r="12" fill="rgba(205,230,252,.5)"/>
+          <path d="M153,165 C166,155 180,144 196,142" stroke="rgba(205,230,252,.45)"
+                stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <circle cx="198" cy="140" r="12" fill="rgba(205,230,252,.5)"/>
+          <!-- Top bloom -->
+          <circle cx="150" cy="48" r="20" fill="rgba(205,230,252,.6)"/>
+          <circle cx="150" cy="30" r="10" fill="rgba(205,230,252,.55)"/>
+        `,
+
+        susan: `
+          <defs>
+            <radialGradient id="${g}" cx="50%" cy="50%" r="55%">
+              <stop offset="0%"   stop-color="#265882" stop-opacity=".5"/>
+              <stop offset="100%" stop-color="#0c2140" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="300" height="400" fill="#0c2140"/>
+          <rect width="300" height="400" fill="url(#${g})"/>
+          <!-- Left stem -->
+          <path d="M92,395 C90,358 87,318 93,274 C99,230 106,188 98,142
+                   C93,104 87,60 93,16"
+                stroke="rgba(215,238,255,.7)" stroke-width="2"
+                fill="none" stroke-linecap="round"/>
+          ${makeLeaves(92,330,6,24,18,30,false)}
+          <!-- Right stem -->
+          <path d="M208,395 C206,365 203,330 209,290 C215,250 222,208 214,162
+                   C209,124 203,76 209,16"
+                stroke="rgba(215,238,255,.7)" stroke-width="2"
+                fill="none" stroke-linecap="round"/>
+          ${makeLeaves(208,345,5,24,17,30,false)}
+          <!-- Left daisy bloom -->
+          ${makePetals(93,50,18,28,13,0.56)}
+          <circle cx="93" cy="50" r="9" fill="rgba(215,238,255,.85)"/>
+          <!-- Right daisy bloom -->
+          ${makePetals(208,46,18,28,13,0.54)}
+          <circle cx="208" cy="46" r="9" fill="rgba(215,238,255,.82)"/>
+        `,
+
+        sage: `
+          <defs>
+            <radialGradient id="${g}" cx="44%" cy="34%" r="56%">
+              <stop offset="0%"   stop-color="#1a4870" stop-opacity=".55"/>
+              <stop offset="100%" stop-color="#0a1a2c" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="300" height="400" fill="#0a1a2c"/>
+          <rect width="300" height="400" fill="url(#${g})"/>
+          <path d="M150,398 C150,362 147,324 153,280 C159,236 165,192 156,138
+                   C150,96 143,54 150,12"
+                stroke="rgba(218,238,255,.72)" stroke-width="2.5"
+                fill="none" stroke-linecap="round"/>
+          <!-- Main stem leaves -->
+          ${makeLeaves(150,370,11,28,21,30,false)}
+          <!-- Left branch -->
+          <path d="M152,148 C138,136 124,124 110,118" stroke="rgba(218,238,255,.5)"
+                stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          ${makeLeaves(126,136,4,20,16,24,true)}
+          <!-- Right branch -->
+          <path d="M152,148 C166,136 180,124 196,118" stroke="rgba(218,238,255,.5)"
+                stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          ${makeLeaves(174,134,4,20,16,24,false)}
+          <!-- Tip flowers -->
+          <ellipse cx="150" cy="24" rx="14" ry="12" fill="rgba(218,238,255,.7)"/>
+          <ellipse cx="139" cy="13" rx="9"  ry="7"  fill="rgba(218,238,255,.6)"/>
+          <ellipse cx="162" cy="10" rx="9"  ry="7"  fill="rgba(218,238,255,.58)"/>
+        `,
+
+        poppy: `
+          <defs>
+            <radialGradient id="${g}" cx="50%" cy="46%" r="52%">
+              <stop offset="0%"   stop-color="#235282" stop-opacity=".6"/>
+              <stop offset="100%" stop-color="#0d2040" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="300" height="400" fill="#0d2040"/>
+          <rect width="300" height="400" fill="url(#${g})"/>
+          <path d="M150,398 C148,356 144,312 152,264 C160,216 166,172 157,122
+                   C151,82 143,48 150,12"
+                stroke="rgba(212,236,255,.68)" stroke-width="2.5"
+                fill="none" stroke-linecap="round"/>
+          ${makeLeaves(150,340,8,30,22,28,false)}
+          <!-- Poppy bloom — large soft petals at top -->
+          <ellipse cx="150" cy="70" rx="54" ry="60" fill="rgba(212,236,255,.09)"/>
+          ${makePetals(150,70,26,50,6,0.28)}
+          <ellipse cx="150" cy="70" rx="46" ry="50" fill="rgba(212,236,255,.12)"/>
+          ${makePetals(150,70,22,44,6,0.24)}
+          <!-- Centre -->
+          <circle cx="150" cy="70" r="16" fill="rgba(212,236,255,.5)"/>
+          <circle cx="150" cy="70" r="9"  fill="rgba(212,236,255,.8)"/>
+        `,
+
+        thistle: `
+          <defs>
+            <radialGradient id="${g}" cx="54%" cy="42%" r="55%">
+              <stop offset="0%"   stop-color="#1f4e74" stop-opacity=".55"/>
+              <stop offset="100%" stop-color="#091e32" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="300" height="400" fill="#091e32"/>
+          <rect width="300" height="400" fill="url(#${g})"/>
+          <path d="M150,398 C148,358 145,314 152,264 C159,214 165,168 156,112
+                   C150,68 143,36 150,8"
+                stroke="rgba(218,238,255,.72)" stroke-width="3"
+                fill="none" stroke-linecap="round"/>
+          <!-- Spine clusters at three heights -->
+          ${makeSpines(150,290,18,20)}
+          ${makeSpines(150,210,16,18)}
+          ${makeSpines(150,350,14,15)}
+          <!-- Thistle head -->
+          <ellipse cx="150" cy="48" rx="26" ry="36" fill="rgba(218,238,255,.07)"/>
+          <ellipse cx="150" cy="42" rx="20" ry="28" fill="rgba(218,238,255,.1)"/>
+          ${makeFluff(150,34,20)}
+        `
+      };
+      return plants[type] || plants['bluebonnet'];
+    }
+
+    function makeSpines(cx, cy, r, count) {
+      let s = '';
+      for (let i = 0; i < count; i++) {
+        const a  = (i / count) * Math.PI * 2;
+        const x2 = (cx + Math.cos(a) * r).toFixed(1);
+        const y2 = (cy + Math.sin(a) * r).toFixed(1);
+        s += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}"
+               stroke="rgba(218,238,255,.55)" stroke-width="1.3"/>`;
+      }
+      return s;
+    }
+
+    function makeFluff(cx, cy, r) {
+      let s = '';
+      const n = 18;
+      for (let i = 0; i < n; i++) {
+        const a  = (i / n) * Math.PI * 2 - Math.PI / 2;
+        const x2 = (cx + Math.cos(a) * r).toFixed(1);
+        const y2 = (cy + Math.sin(a) * r).toFixed(1);
+        const tx = (cx + Math.cos(a) * (r + 5)).toFixed(1);
+        const ty = (cy + Math.sin(a) * (r + 5)).toFixed(1);
+        s += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}"
+               stroke="rgba(218,238,255,.68)" stroke-width="1"/>`;
+        s += `<circle cx="${tx}" cy="${ty}" r="1.6" fill="rgba(218,238,255,.72)"/>`;
+      }
+      return s;
+    }
+
+    /* ==========================================================
+       RENDER GALLERY
+    ========================================================== */
+    let uidCounter = 0;
+
+    function artworkHTML(art, uid, isThumbnail) {
+      if (art.image) {
+        return `
+          <div class="gallery-img ${art.svgClass}">
+            <img src="${art.image}"
+                 alt="${art.title} — ${art.medium}"
+                 style="width:100%;height:100%;object-fit:cover;">
+          </div>`;
+      }
+      return `
+        <div class="gallery-img ${art.svgClass}">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            ${plantSVG(art.plant, uid)}
+          </svg>
+        </div>`;
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      if (!grid) return;
+      artworks.forEach((art, i) => {
+        const delay = ['', ' d1', ' d2'][i % 3];
+        const uid   = ++uidCounter;
+        const el    = document.createElement('article');
+        el.className  = `gallery-item reveal${delay}`;
+        el.setAttribute('role', 'listitem');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('aria-label', `${art.title} — ${art.medium}`);
+        el.dataset.idx = i;
+        el.innerHTML = `
+          ${artworkHTML(art, uid, true)}
+          <div class="gallery-overlay">
+            <p class="gallery-overlay-meta">${art.medium}${art.year ? ' — ' + art.year : ''}</p>
+            <h3 class="gallery-overlay-title">${art.title}</h3>
+            <p class="gallery-overlay-desc">${art.description}</p>
+            <span class="gallery-view-link">
+              View
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>`;
+        el.addEventListener('click', () => openLB(i));
+        el.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLB(i); }
+        });
+        el.addEventListener('pointermove', e => {
+          const rect = el.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          el.style.setProperty('--mx', `${x}%`);
+          el.style.setProperty('--my', `${y}%`);
+        });
+        grid.appendChild(el);
+      });
+    }
+
+    /* ==========================================================
+       LIGHTBOX
+    ========================================================== */
+    let lbIndex = 0;
+
+    function openLB(i) {
+      lbIndex = i;
+      paintLB();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lbClose').focus();
+    }
+
+    function closeLB() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function paintLB() {
+      const art = artworks[lbIndex];
+      const uid = ++uidCounter;
+      document.getElementById('lbCount').textContent =
+        `${String(lbIndex + 1).padStart(2,'0')} / ${String(artworks.length).padStart(2,'0')}`;
+      document.getElementById('lbTitle').textContent  = art.title;
+      document.getElementById('lbMedium').textContent =
+        `${art.medium}${art.year ? ' — ' + art.year : ''}`;
+      document.getElementById('lbDesc').textContent   = art.description;
+      document.getElementById('lbMetaMedium').textContent = art.medium;
+      document.getElementById('lbMetaPlace').textContent = art.location || 'Austin, Texas';
+      if (art.image) {
+        document.getElementById('lbImg').innerHTML = `
+          <div class="${art.svgClass}" style="width:100%;height:100%;">
+            <img src="${art.image}"
+                 alt="${art.title} — ${art.medium}"
+                 style="width:100%;height:100%;display:block;margin:0 auto;${art.lightboxImageStyle || 'object-fit:contain;'}">
+          </div>`;
+        return;
+      }
+      document.getElementById('lbImg').innerHTML = `
+        <div class="${art.svgClass}" style="width:100%;height:100%;">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"
+               style="width:100%;height:100%;" aria-hidden="true">
+            ${plantSVG(art.plant, uid)}
+          </svg>
+        </div>`;
+    }
+
+    document.getElementById('lbClose').addEventListener('click', closeLB);
+    document.getElementById('lbPrev').addEventListener('click', () => {
+      lbIndex = (lbIndex - 1 + artworks.length) % artworks.length; paintLB();
+    });
+    document.getElementById('lbNext').addEventListener('click', () => {
+      lbIndex = (lbIndex + 1) % artworks.length; paintLB();
+    });
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target === document.getElementById('lightbox')) closeLB();
+    });
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape')     closeLB();
+      if (e.key === 'ArrowLeft')  { lbIndex = (lbIndex - 1 + artworks.length) % artworks.length; paintLB(); }
+      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % artworks.length; paintLB(); }
+    });
+
+    /* ==========================================================
+       NAVIGATION — sticky effect + mobile menu
+    ========================================================== */
+    const navEl = document.getElementById('nav');
+    const progressBar = document.getElementById('navProgressBar');
+    const navLinks = Array.from(document.querySelectorAll('.nav-links .nav-link'));
+    const mobileLinks = Array.from(document.querySelectorAll('.nav-mobile .nav-link'));
+    const sectionEls = Array.from(document.querySelectorAll('main section[id]'));
+
+    function updateScrollUI() {
+      navEl.classList.toggle('scrolled', window.scrollY > 50);
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      progressBar.style.width = `${Math.min(progress, 100)}%`;
+    }
+
+    function setActiveSection(id) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+      mobileLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+    updateScrollUI();
+
+    const toggle   = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('navMobile');
+    const closeBtn = document.getElementById('navClose');
+
+    toggle.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+    function closeMenu() {
+      mobileNav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    closeBtn.addEventListener('click', closeMenu);
+    mobileNav.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeMenu));
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href');
+        const target = targetId && document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+        if (mobileNav.classList.contains('open')) closeMenu();
+      });
+    });
+
+    /* ==========================================================
+       SCROLL REVEAL
+    ========================================================== */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
+      });
+    }, { threshold: 0.45, rootMargin: '-15% 0px -40% 0px' });
+
+    const processSteps = Array.from(document.querySelectorAll('.process-step'));
+    const processProgressHost = document.querySelector('.process-shell');
+    const processObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const step = Number(entry.target.dataset.step || 0);
+        processSteps.forEach(el => el.classList.toggle('active', el === entry.target));
+        if (processProgressHost) {
+          const progress = processSteps.length > 1 ? (step / (processSteps.length - 1)) * 100 : 0;
+          processProgressHost.style.setProperty('--process-progress', `${progress}%`);
+        }
+      });
+    }, { threshold: 0.55, rootMargin: '-10% 0px -20% 0px' });
+
+    /* ==========================================================
+       CURSOR
+    ========================================================== */
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    const cursorLabel = document.getElementById('cursorLabel');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    function initCursor() {
+      if (!supportsFinePointer.matches || prefersReducedMotion.matches) return;
+      document.body.classList.add('cursor-enhanced');
+
+      let pointerX = window.innerWidth / 2;
+      let pointerY = window.innerHeight / 2;
+      let ringX = pointerX;
+      let ringY = pointerY;
+      let dotX = pointerX;
+      let dotY = pointerY;
+
+      function renderCursor() {
+        ringX += (pointerX - ringX) * 0.18;
+        ringY += (pointerY - ringY) * 0.18;
+        dotX += (pointerX - dotX) * 0.35;
+        dotY += (pointerY - dotY) * 0.35;
+        cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+        cursorDot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+        cursorLabel.style.transform = `translate(${ringX + 18}px, ${ringY - 22}px) translate(-50%, -50%)`;
+        requestAnimationFrame(renderCursor);
+      }
+
+      window.addEventListener('pointermove', e => {
+        pointerX = e.clientX;
+        pointerY = e.clientY;
+        document.body.classList.add('cursor-visible');
+      }, { passive: true });
+
+      document.documentElement.addEventListener('pointerleave', () => {
+        document.body.classList.add('cursor-hidden');
+      });
+
+      document.documentElement.addEventListener('pointerenter', () => {
+        document.body.classList.remove('cursor-hidden');
+      });
+
+      const interactiveEls = document.querySelectorAll('a, button, .gallery-item, .contact-link, .nav-logo');
+      interactiveEls.forEach(el => {
+        const label = el.classList.contains('gallery-item') ? 'View' : el.getAttribute('data-cursor') || '';
+        el.addEventListener('pointerenter', () => {
+          document.body.classList.add(el.classList.contains('gallery-item') ? 'cursor-art' : 'cursor-link');
+          if (!el.classList.contains('gallery-item')) document.body.classList.remove('cursor-art');
+          if (el.classList.contains('gallery-item')) document.body.classList.remove('cursor-link');
+          cursorLabel.textContent = label;
+          cursorLabel.style.opacity = label ? '1' : '0';
+        });
+        el.addEventListener('pointerleave', () => {
+          document.body.classList.remove('cursor-art', 'cursor-link');
+          cursorLabel.textContent = '';
+          cursorLabel.style.opacity = '0';
+        });
+      });
+
+      requestAnimationFrame(renderCursor);
+    }
+
+    /* ==========================================================
+       CONTACT FORM
+       ──────────────────────────────────────────────────────────
+       To connect to a real backend, replace the submit handler:
+
+       Formspree (easiest):
+         Change <form> action to your Formspree endpoint URL,
+         remove e.preventDefault(), let it submit naturally.
+
+       Netlify Forms:
+         Add `netlify` attribute to the <form> tag. Netlify
+         detects and handles the rest on deploy.
+
+       EmailJS:
+         Call emailjs.send() inside the handler with your
+         service/template IDs from emailjs.com.
+    ========================================================== */
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      // REPLACE: add real submission logic above this line
+      e.target.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+
+    /* ==========================================================
+       INIT
+    ========================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGallery();
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => {
+        if (el.classList.contains('visible')) return;
+        observer.observe(el);
+      });
+      sectionEls.forEach(section => sectionObserver.observe(section));
+      processSteps.forEach(step => processObserver.observe(step));
+      initCursor();
+    });
+</script>
+
+</body>
 </html>
